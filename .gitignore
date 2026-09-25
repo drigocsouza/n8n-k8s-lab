@@ -1,0 +1,4 @@
+# nunca commitar segredo real, só o .example
+environments/*/secrets.yaml
+*.env
+.env.local

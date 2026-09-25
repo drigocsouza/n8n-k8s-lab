@@ -1,0 +1,53 @@
+# Modo fila: main + worker + webhook-processor (mesma topologia do doc de referência)
+queueMode:
+  enabled: true
+  workerReplicaCount: 1
+  workerConcurrency: 5
+
+webhookProcessor:
+  enabled: true
+  replicaCount: 1
+
+database:
+  type: postgresdb
+  useExternal: true
+  host: "postgres.n8n.svc.cluster.local"
+  port: 5432
+  database: n8n
+  schema: "public"
+  user: n8n
+  passwordSecret:
+    name: "n8n-db-secret"
+    key: "password"
+
+redis:
+  enabled: true
+  useExternal: true
+  host: "redis.n8n.svc.cluster.local"
+  port: 6379
+
+secretRefs:
+  existingSecret: "n8n-core-secrets"
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: n8n.local
+      paths:
+        - path: /
+          pathType: Prefix
+  webhookProcessor:
+    enabled: true
+    className: nginx
+
+resources:
+  main:
+    requests: { memory: "256Mi", cpu: "200m" }
+    limits: { memory: "512Mi", cpu: "500m" }
+  worker:
+    requests: { memory: "128Mi", cpu: "100m" }
+    limits: { memory: "256Mi", cpu: "300m" }
+
+config:
+  timezone: America/New_York

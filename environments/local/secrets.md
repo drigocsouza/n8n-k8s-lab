@@ -26,7 +26,7 @@ Gerada uma vez com `openssl rand -hex 16` e guardada em `.env.local` (fora do
 git). **Nunca regenerar** — ela criptografa as credenciais salvas dentro do
 n8n (conexões, tokens de outras integrações). Se for perdida ou trocada, um
 restore do banco Postgres devolve essas credenciais ilegíveis, mesmo com o
-banco intacto. Mesmo princípio citado no um padrão de arquitetura enterprise de referência para
+banco intacto. Mesmo princípio citado em um padrão de arquitetura enterprise de referência para
 produção — aqui vale igual, só que sem Key Vault por trás.
 
 ## O que muda na Fase 2 (Azure)

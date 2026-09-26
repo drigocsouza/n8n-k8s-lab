@@ -3,7 +3,7 @@
 Réplica de aprendizado da arquitetura de referência n8n na Azure (baseado em um padrão de referência enterprise para n8n em Kubernetes),
 primeiro local (kind/WSL) e depois no AKS.
 
-## Fase 1 — Local (kind)
+## Fase 1 - Local (kind)
 - [x] kind + kubectl + helm instalados
 - [x] cluster kind criado (clusters/kind-config.yaml)
 - [x] ingress-nginx
@@ -12,7 +12,7 @@ primeiro local (kind/WSL) e depois no AKS.
 - [x] helm install n8n (queue mode: main + worker + webhook-processor)
 - [x] validar fila (webhook -> worker) - confirmado via logs: worker processou job 1 e job 2
 
-## Fase 2 — Azure (AKS, subscription Azure pessoal — id fora do git)
+## Fase 2 - Azure (AKS, subscription Azure pessoal - id fora do git)
 Segue o doc de arquitetura de referência: AKS privado, PostgreSQL Flexible Server,
 Azure Managed Redis, Key Vault + Workload Identity, AGIC/App Gateway WAF.
 Ainda não iniciado.
